@@ -1,0 +1,1 @@
+export { default } from 'ember-phoenix-websockets/services/phoenix-websocket';
