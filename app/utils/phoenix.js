@@ -1,1 +1,1 @@
-export { default } from 'phoenix-ember-websockets/utils/phoenix';
+export { default } from 'ember-phoenix-websockets/utils/phoenix';

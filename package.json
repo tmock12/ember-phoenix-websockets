@@ -1,5 +1,5 @@
 {
-  "name": "phoenix-ember-websockets",
+  "name": "ember-phoenix-websockets",
   "version": "0.0.0",
   "description": "The default blueprint for ember-cli addons.",
   "directories": {

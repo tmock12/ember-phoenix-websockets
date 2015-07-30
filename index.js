@@ -2,5 +2,8 @@
 'use strict';
 
 module.exports = {
-  name: 'phoenix-ember-websockets'
+  name: 'ember-phoenix-websockets',
+  isDevelopingAddon: function() {
+    return true;
+  }
 };
