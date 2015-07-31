@@ -1,25 +1,49 @@
-# Phoenix-ember-websockets
+# ember-phoenix-websockets
 
-This README outlines the details of collaborating on this Ember addon.
+## Warning
+This project is under initial development and should not be used until versioned.
 
 ## Installation
+`ember install ember-phoenix-websockets`
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+## Basic Usage
+#### Injecting the service:
+First, inject the phoenix-websocket service into wherever it's needed
 
-## Running
+```javascript
+phoenixWebsocket: Ember.inject.service()
+```
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+#### To connect to a socket:
+Call `connectToSocket()` on the service and give it your URL.
 
-## Running Tests
+```javascript
+this.get('phoenixWebsocket').connectToSocket('ws://localhost:4000/ws');
+```
 
-* `ember test`
-* `ember test --server`
+#### To join a channel:
+Call `joinChannel()` on the service and pass it the topic.
 
-## Building
+```javascript
+this.get('phoenixWebsocket').joinChannel('rooms:lobby')
+```
+This will return a promise that will be resolved and return the connected channel on a succesful response from phoenix such as:
 
-* `ember build`
+```elixir
+{:ok, socket}
+```
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+Or rejected on an error response like:
+
+```elixir
+{:error, %{reason: "Unauthorized"}}
+```	
+
+Example for joining a channel:
+
+```javascript
+  this.get('phoenixWebsocket').joinChannel('rooms:lobby').then(
+    (joinedChan) => { this.set('chan', joinedChan); },
+    ()=> { alert('something bad happened'); }
+  );
+```
