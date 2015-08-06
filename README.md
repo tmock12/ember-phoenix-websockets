@@ -1,7 +1,7 @@
 # ember-phoenix-websockets
 
 ## Warning
-This project is under initial development and should not be used until versioned.
+This project is under initial development and should not be used until phoenix version 1.0. Phoenix v0.16.0 was released on August 5th 2015 and will be the last major release before 1.0.
 
 ## Installation
 `ember install ember-phoenix-websockets`
